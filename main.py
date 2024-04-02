@@ -30,7 +30,7 @@ def occupy_memory(target_percent, interval=300):
 def occupy_cpu(percent, cpu_index, ):
     p = psutil.Process()
     p.cpu_affinity([cpu_index])
-    full_time = 1 # 运行周期
+    full_time = 1  # 运行周期
     runtime = percent / 100
     sleep_time = full_time - runtime
     while True:
@@ -52,7 +52,6 @@ if __name__ == "__main__":
 
     # 获取逻辑 CPU 的数量
     cpu_count = psutil.cpu_count()
-
 
     # 创建多个进程，每个进程都绑定到不同的 CPU 上运行
     processes = []
