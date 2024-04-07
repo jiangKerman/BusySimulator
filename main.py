@@ -54,7 +54,7 @@ def occupy_cpu(percent, error_range, cpu_index, usage_list):
             if runtime <= 0:
                 # 运行时间最小是0
                 continue
-            print(f"cpu{cpu_index}大于{max_percent}")
+            # print(f"cpu{cpu_index}大于{max_percent}")
             sleep_time = sleep_time + 0.01
             runtime = runtime - 0.01
             pass
@@ -62,7 +62,7 @@ def occupy_cpu(percent, error_range, cpu_index, usage_list):
             if runtime >= 100:
                 # 运行时间最大是100
                 continue
-            print(f"cpu{cpu_index}小于{min_percent}")
+            # print(f"cpu{cpu_index}小于{min_percent}")
             sleep_time = sleep_time - 0.01
             runtime = runtime + 0.01
             pass
@@ -100,7 +100,7 @@ if __name__ == "__main__":
         process = multiprocessing.Process(target=occupy_cpu, args=(cpu_percent, error_range, cpu_index, usage_list))
         process.start()
         processes.append(process)
-    print("occupying...")
+    print(f"目标: memory:{memory_percent} cpu:{cpu_percent}% cpu波动:{error_range}")
     # 等待所有进程结束
     for process in processes:
         process.join()
