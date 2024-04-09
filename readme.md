@@ -13,7 +13,12 @@
 # 克隆项目
 git clone https://github.com/jiangKerman/BusySimulator.git
 cd BusySimulator/
-# 后面的先自己看着办吧，你都不用windows了可以自己解决的
+# 创建虚拟环境
+virtualenv venv
+source venv/bin/activate
+pip install psutil
+python main.py
+# 后面的你自己看着吧把，我只能帮你到这里了
 ```
 # todo
 1. cpu占用隔一段时间要判断当前占用率，然后调整 √
