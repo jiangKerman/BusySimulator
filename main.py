@@ -16,11 +16,13 @@ def occupy_memory(target_percent, interval=300):
         # 计算目标内存占用量（以字节为单位）
         total_memory = psutil.virtual_memory().total
         target_memory = int((target_percent / 100) * total_memory)
+        step = int(total_memory/1024)# 每次添加总内存的1024分之一，即总内存1G，步长为1M，总内存64G，步长64M
         data = []
         while psutil.virtual_memory().used < target_memory:
             # 每次迭代向列表中添加一些数据
             # data.append(' ' * 1024)  #  # 添加 1KB 的数据，两字符1b，只不过无所谓
-            data.append(' ' * 1024 * 1024)
+            # data.append(' ' * 1024 * 1024)
+            data.append(' ' * step)
             # occupied_memory += 10240
             # print(psutil.virtual_memory().used)
         time.sleep(interval)
